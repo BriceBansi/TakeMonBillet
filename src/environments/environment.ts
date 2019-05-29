@@ -5,12 +5,7 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: 'AIzaSyDoe0-dxwaOIfkcKY3sNayPBumjLZ1F2iQ',
-    authDomain: 'travelcar-92480.firebaseapp.com',
-    databaseURL: 'https://travelcar-92480.firebaseio.com',
-    projectId: 'travelcar-92480',
-    storageBucket: 'travelcar-92480.appspot.com',
-    messagingSenderId: '313475262711'
+   
   }
 };
 
