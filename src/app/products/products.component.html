@@ -1,0 +1,19 @@
+<div class=" container flex-container">
+    <div routerLink="detail/{{p._id}}" *ngFor="let p of dataProduct | slice:start:pageSize ">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>{{p.name}}</mat-card-title>
+
+            </mat-card-header>
+            <mat-card-content>
+                <img class="content-img" mat-card-image src="{{p.picture}}" alt="Photo of a Shiba Inu"> {{p.address}} {{p.company}}
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+</div>
+<div class="container">
+    <mat-paginator [length]="length" [pageSize]="5" (page)="onPaginateChange($event)">
+    </mat-paginator>
+</div>

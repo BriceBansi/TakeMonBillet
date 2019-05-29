@@ -1,0 +1,151 @@
+<!-- <div class="flex-container">
+    <div>
+        <button class="example-full-width" mat-raised-button routerLink="/user" color="accent">ESPACE UTILISATEUR</button>
+    </div>
+    <div>
+
+    </div>
+</div> -->
+<div class="flex-container">
+    <div>
+        <button class="example-full-width" mat-raised-button routerLink="/user/createVoyageUser" color="accent">CREER UN VOYAGE</button>
+    </div>
+    <div>
+        <button class="example-full-width" mat-raised-button routerLink="/user" color="primary">LISTE DES VOYAGES</button>
+    </div>
+</div>
+<form class="mat-elevation-z4" [formGroup]="voyageForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="flex-container-form">
+        <div>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Compagnie" type="text" formControlName="compagny">
+                <mat-hint>Entrez nom de la compagnie</mat-hint>
+                <mat-error *ngIf="voyageForm.hasError('required')">
+                    Compagnie is
+                    <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="No Bus" type="text" formControlName="numeroBus">
+                <mat-hint>Entrez numéro dus bus</mat-hint>
+                <mat-error *ngIf="voyageForm.hasError('required')">
+                    No Bus is
+                    <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Email" type="email" formControlName="email">
+                <mat-hint>Entrez numéro dus bus</mat-hint>
+                <mat-error *ngIf="voyageForm.hasError('required')">
+                    Email is
+                    <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Telephone" type="tel" formControlName="phone">
+                <mat-hint>Entrez numéro telephone</mat-hint>
+                <mat-error *ngIf="voyageForm.hasError('required')">
+                    Phone is
+                    <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Adresse" type="text" formControlName="adresse">
+                <mat-hint>Entrez numéro adresse</mat-hint>
+                <mat-error *ngIf="voyageForm.hasError('required')">
+                    Adresse is
+                    <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field class="example-full-width">
+                <textarea matInput placeholder="Commentaires" formControlName="about"></textarea>
+            </mat-form-field>
+            <mat-error *ngIf="voyageForm.hasError('required')">
+                Commentaires is
+                <strong>required</strong>
+            </mat-error>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <input matInput [matDatepicker]="registered" placeholder="Choisir la date du voyage" formControlName="registered">
+                <mat-datepicker-toggle matSuffix [for]="registered"></mat-datepicker-toggle>
+                <mat-datepicker #registered></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Depart" type="text" formControlName="depart">
+                <mat-hint>Entrez la ville de départ</mat-hint>
+                <mat-error *ngIf="voyageForm.hasError('required')">
+                    Depart is
+                    <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Arrivée" type="text" formControlName="arrivee">
+                <mat-hint>Entrez la ville d'arrivée</mat-hint>
+                <mat-error *ngIf="voyageForm.hasError('required')">
+                    Arrivée is
+                    <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Heure Depart" type="time" formControlName="heureDepart">
+                <mat-hint>Entrez heure de départ</mat-hint>
+                <mat-error *ngIf="voyageForm.hasError('required')">
+                    Heure Depart is
+                    <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Heure Arrivée" type="time" formControlName="heureArrivee">
+                <mat-hint>Entrez l'heure d'arrivée</mat-hint>
+                <mat-error *ngIf="voyageForm.hasError('required')">
+                    Heure Arrivée is
+                    <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Nombre de Places" type="number" formControlName="nbrePlaces">
+                <mat-hint>Entrez Nombre de Places</mat-hint>
+                <mat-error *ngIf="voyageForm.hasError('required')">
+                    Nombre de Places is
+                    <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Prix" type="number" formControlName="price">
+                <mat-hint>Entrez le Prix du Transport</mat-hint>
+                <mat-error *ngIf="voyageForm.hasError('required')">
+                    Prix du Transport is
+                    <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="center-item page">
+        <button mat-raised-button type="submit" mat-button color="primary">Créer</button>
+    </div>
+
+</form>

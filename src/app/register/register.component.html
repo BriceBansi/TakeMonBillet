@@ -1,0 +1,54 @@
+<div class="container">
+    <h1 class="center">Créer un compte</h1>
+    <div class="container">
+        <form [formGroup]="registerForm">
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Email" type="email" formControlName="email">
+                <mat-hint>Entrez votre adresse email au bon format!</mat-hint>
+                <mat-error *ngIf="registerForm.hasError('email') && !registerForm.hasError('required')">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="registerForm.hasError('required')">
+                    Email is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Password" type="password" formControlName="password">
+                <mat-hint>Entrez votre mot de passe!</mat-hint>
+                <mat-error *ngIf="registerForm.hasError('password') && !registerForm.hasError('required')">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="registerForm.hasError('required')">
+                    Password is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Code" type="text" formControlName="code">
+                <mat-hint>Entrez votre code entreprise</mat-hint>
+                <mat-error *ngIf="registerForm.hasError('required')">
+                    Code entreprise is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <button mat-raised-button mat-button color="primary" type="submit" (click)="tryRegister(registerForm.value)">Register</button>
+        </form>
+    </div>
+    <div class="container">
+        <p> <a mat-raised-button class="b-color" href="/login"><span class="f-police">SE CONNECTER</span></a></p>
+    </div>
+</div>
+
+<!--     <div class="container">
+        <div class="col-md-4 col-md-offset-4">
+            <button type="button" class="btn btn-primary btn-block" (click)="tryFacebookLogin()">Register with Facebook</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-4 col-md-offset-4">
+            <button type="button" class="btn btn-danger btn-block" (click)="tryGoogleLogin()">Register with Google</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-4 col-md-offset-4">
+            <button type="button" class="btn btn-info btn-block" (click)="tryTwitterLogin()">Register with Twitter</button>
+        </div>
+    </div> -->

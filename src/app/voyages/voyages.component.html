@@ -1,0 +1,82 @@
+<div class="flex-container">
+    <div>
+
+    </div>
+    <div>
+        <button class="example-full-width" mat-raised-button (click)="goToListVoyage()" color="accent">LISTE DE VOYAGES</button>
+    </div>
+</div>
+
+<div *ngIf="showReservation">
+
+    <div class="flex-container-form">
+        <div>
+            <app-detail-voyage [voyageDetail]="selectedVoyage"></app-detail-voyage>
+        </div>
+        <div>
+            <mat-vertical-stepper linear #stepper>
+                <mat-step [stepControl]="clientOneFormGroup">
+                    <form [formGroup]="clientOneFormGroup">
+                        <ng-template matStepLabel>Entrez votre nom et prénom</ng-template>
+                        <mat-form-field>
+                            <input matInput type="text" placeholder="Nom" formControlName="name" required>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput type="text" placeholder="Prénom" formControlName="prenom" required>
+                        </mat-form-field>
+                        <div>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="clientTwoFormGroup" [optional]="isOption">
+                    <form [formGroup]="clientTwoFormGroup">
+                        <ng-template matStepLabel>Modalités de transport</ng-template>
+                        <mat-form-field>
+                            <input matInput type="number" min="1" placeholder="Nbre de places" formControlName="qte" required [errorStateMatcher]="matcher">
+                            <mat-error *ngIf="clientTwoFormGroup.errors?.equalPlace">Vérifier que le nombre de places est bien égal à la quantité de billets achetés.</mat-error>
+                        </mat-form-field>
+                        <p>Prix : {{this.clientTwoFormGroup.get('qte').value * selectedVoyage.price}}</p>
+                        <mat-form-field>
+                            <mat-select placeholder="Choisir vos numéros de place" formControlName="place" multiple required [errorStateMatcher]="matcher">
+                                <mat-option *ngFor="let i of places" [value]="i">
+                                    {{i}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="clientTwoFormGroup.getError('equalPlace')">Vérifier que le nombre de places est bien égal à la quantité de billets achetés.</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <input matInput placeholder="Code de validation" formControlName="codeMoney" required>
+                        </mat-form-field>
+
+                        <div>
+                            <button mat-button matStepperPrevious>Back</button>
+                            <button mat-button matStepperNext (click)="afficherError()">Next</button>
+                        </div>
+
+                    </form>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Confirmation de votre réservation</ng-template>
+                    You are now done.
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button (click)="onSubmit()">Confirmer</button>
+                        <button mat-button (click)="printBillet()">Billet</button>
+
+                    </div>
+                </mat-step>
+
+
+            </mat-vertical-stepper>
+
+        </div>
+    </div>
+
+
+</div>
+
+<app-list-voyage *ngIf="!showReservation" [voyages]="voyageLists" (selectedVoyage)="select($event)">
+
+</app-list-voyage>

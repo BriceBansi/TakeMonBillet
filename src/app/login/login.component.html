@@ -1,0 +1,32 @@
+<div class="container">
+    <h1 class="center">Connectez-vous pour accéder auservice de création de voyage</h1>
+    <div class="container">
+        <form [formGroup]="loginForm">
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Email" type="email" formControlName="email">
+                <mat-hint>Entrez votre adresse email au bon format!</mat-hint>
+                <mat-error *ngIf="loginForm.hasError('email') && !loginForm.hasError('required')">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="loginForm.hasError('required')">
+                    Email is
+                    <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Password" type="password" formControlName="password">
+                <mat-hint>Entrez votre mot de passe!</mat-hint>
+                <mat-error *ngIf="loginForm.hasError('password') && !loginForm.hasError('required')">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="loginForm.hasError('required')">
+                    Password is
+                    <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <div class="marge-h">
+                <button mat-raised-button mat-button color="primary" type="submit" (click)="tryLogin(loginForm.value)">SE CONNECTER</button>
+            </div>
+        </form>
+    </div>
+</div>

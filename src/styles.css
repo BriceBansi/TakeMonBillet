@@ -1,1 +1,124 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body {
+    margin: 0;
+}
+
+.container {
+    margin: 5%;
+}
+
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.flex-container>div {
+    text-align: center;
+    line-height: 35px;
+    width: 45%;
+    margin: 10px;
+}
+
+.strong {
+    font-weight: bold;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.b-color {
+    background-color: teal;
+    color: beige;
+}
+
+.f-police {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 16px;
+}
+
+.marge-d {
+    margin-right: 2%;
+    font-weight: bold;
+}
+
+.marge-h {
+    margin-top: 2%;
+}
+
+.marge-b {
+    margin-bottom: 2%;
+}
+
+.example-icon {
+    padding: 0 14px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.curseur {
+    cursor: pointer;
+}
+
+.example-tab-icon {
+    margin-right: 8px;
+}
+
+.flex-container-form {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.flex-container-form>div {
+    margin: 2%;
+    width: 45%;
+}
+
+@media screen and (max-width: 768px) {
+    .flex-container-form {
+        flex-direction: column;
+    }
+    .flex-container-form>div {
+        margin: 1%;
+        width: 100%;
+    }
+}
+
+.center-item {
+    text-align: center;
+}
+
+.b-color {
+    background-color: gainsboro;
+}
+
+.flex-container-list {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+}
+
+.flex-container-list>div {
+    background-color: #f1f1f1;
+    width: 40%;
+    text-align: center;
+    margin: 10px;
+}
+
+.example-radio-group {
+    display: inline-flex;
+}
+
+.example-radio-button {
+    margin: 5px;
+    font-weight: bold;
+}
+
+.page {
+    padding: 2%;
+}
